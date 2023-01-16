@@ -1,0 +1,25 @@
+# Ignore misc files
+*Cache.csv
+*.swp
+
+# Ignore symlinks
+Source/oldts
+
+# Ignore Redirect Folders
+Source/all/
+Source/beta/
+Source/bt
+Source/gr
+Source/thargoids
+Source/thargoid
+Source/ts
+Source/us/
+Source/us2/
+
+*.sln
+
+Web.config
+
+node_modules
+dist
+
