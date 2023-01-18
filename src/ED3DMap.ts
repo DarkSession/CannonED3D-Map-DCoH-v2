@@ -2,7 +2,7 @@
 import * as THREE from 'three';
 import Stats from 'three/examples/jsm/libs/stats.module';
 import * as OrbitControls from "three/examples/jsm/controls/OrbitControls";
-import * as FlyControls from "three/examples/jsm/controls/FlyControls";
+// import * as FlyControls from "three/examples/jsm/controls/FlyControls";
 import { GridHelper, HemisphereLight, Mesh, Object3D, PerspectiveCamera, Raycaster, Scene, WebGLRenderer, Intersection, BufferGeometry, Material, SpriteMaterial, Points, PlaneGeometry, MeshBasicMaterial, DirectionalLight, Float32BufferAttribute, PointsMaterial, FogExp2, AdditiveBlending, Color, Sprite, Clock, Vector3 } from 'three';
 import Emittery from 'emittery';
 import { Galaxy } from './Galaxy';
@@ -190,7 +190,7 @@ export class ED3DMap {
 
         this.events.on("loadAssetsCache", async () => {
             const loader = new FontLoader();
-            this.font = await loader.loadAsync('fonts/helvetiker_regular.typeface.json');
+            this.font = await loader.loadAsync('assets/fonts/helvetiker_regular.typeface.json');
         });
         this.events.on("scaleChanged", async (scale: number) => {
             await this.scaleChanged(scale);

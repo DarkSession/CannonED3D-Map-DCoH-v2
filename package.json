@@ -1,16 +1,17 @@
 {
   "name": "canonned3d-map",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.1",
+  "description": "Rework based on 2023 technologies.",
   "main": "index.js",
   "sideEffects": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch --config webpack.config.dev.ts",
     "start": "webpack serve --open --config webpack.config.dev.ts",
-    "build": "webpack --config webpack.config.prod.ts"
+    "build": "webpack --config webpack.config.prod.ts",
+    "build-lib": "tsc"
   },
-  "author": "",
+  "author": "Canonn, Dark Session",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^18.11.18",
@@ -30,5 +31,16 @@
     "@types/three": "^0.148.0",
     "emittery": "^1.0.1",
     "three": "^0.148.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarkSession/CannonED3D-Map-DCoH-v2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DarkSession/CannonED3D-Map-DCoH-v2/issues"
+  },
+  "homepage": "https://github.com/DarkSession/CannonED3D-Map-DCoH-v2#readme",
+  "files": [
+    "lib/**/*"
+  ]
 }

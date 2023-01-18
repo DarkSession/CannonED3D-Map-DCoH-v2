@@ -227,7 +227,7 @@ export class Galaxy {
     }
 
     this.galaxyInfos = new Object3D();
-    const milkywayDataQuery = await fetch("data/milkyway-ed.json");
+    const milkywayDataQuery = await fetch("assets/data/milkyway-ed.json");
     if (milkywayDataQuery.status === 200) {
       const milkywayData = await milkywayDataQuery.json() as MilkywayData;
       for (const quadrantName in milkywayData.quadrants) {

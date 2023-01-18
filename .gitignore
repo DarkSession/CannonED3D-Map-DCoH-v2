@@ -21,5 +21,6 @@ Source/us2/
 Web.config
 
 node_modules
-
+lib
+dist
 package-lock.json

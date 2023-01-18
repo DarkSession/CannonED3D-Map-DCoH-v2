@@ -76,11 +76,11 @@ export class Textures {
         // All textures are requested around the same time from the server, instead of one after the other
         // This cuts down the total loading time
         await Promise.all([(async () => {
-            this.heightmap = await texloader.loadAsync("textures/heightmap7.jpg");
+            this.heightmap = await texloader.loadAsync("assets/textures/heightmap7.jpg");
         })(), (async () => {
-            this.flareYellow = await texloader.loadAsync("textures/star_grey2.png");
+            this.flareYellow = await texloader.loadAsync("assets/textures/star_grey2.png");
         })(), (async () => {
-            this.flareWhite = await texloader.loadAsync("textures/flare2.png");
+            this.flareWhite = await texloader.loadAsync("assets/textures/flare2.png");
         })()]);
 
         this.glow1 = new SpriteMaterial({

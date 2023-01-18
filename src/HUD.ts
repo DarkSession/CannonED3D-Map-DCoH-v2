@@ -61,7 +61,7 @@ export class HUD {
             {
                 const link4 = document.createElement("div");
                 controlsContainer.append(link4);
-                link4.innerHTML = '<img src="images/cog.svg" border="0" style="width: 24px; height: 24px">';
+                link4.innerHTML = '<img src="assets/images/cog.svg" border="0" style="width: 24px; height: 24px">';
                 link4.onmousedown = () => {
                     console.log("link4");
                 };
