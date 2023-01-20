@@ -1599,7 +1599,7 @@
                                 systems.push(poiSite);
                             }
                             systems.push(...ammoniaWorlds);
-                            await ed3dMap.updateSystems(systems, categories);
+                            await ed3dMap.updateSystems(systems); // categories
                         }
                     }
                 };
@@ -1610,7 +1610,7 @@
                 showGalaxyInfos: true,
                 startAnimation: true,
                 systems: systems,
-                categories: {},
+                categories: categories,
                 activeCategories: ["ClearNew", "AlertNew", "Invasion", "InvasionNew", "Controlled", "ControlledNew", "Maelstrom", "Recovery", "RecoveryNew"],
                 withOptionsPanel: true,
                 withHudPanel: true,

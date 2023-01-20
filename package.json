@@ -1,7 +1,7 @@
 {
   "name": "canonned3d-map",
-  "version": "0.1.1",
-  "description": "Rework based on 2023 technologies.",
+  "version": "0.1.5",
+  "description": "Canonn ED 3D Map",
   "main": "index.js",
   "sideEffects": false,
   "scripts": {
@@ -9,7 +9,7 @@
     "watch": "webpack --watch --config webpack.config.dev.ts",
     "start": "webpack serve --open --config webpack.config.dev.ts",
     "build": "webpack --config webpack.config.prod.ts",
-    "build-lib": "tsc"
+    "build-lib": "tsc && xcopy /e /y src\\assets lib\\assets\\*"
   },
   "author": "Canonn, Dark Session",
   "license": "MIT",

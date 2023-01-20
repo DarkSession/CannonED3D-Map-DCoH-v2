@@ -216,14 +216,15 @@ export class ED3DMap {
         console.log("init done");
 
         if (this.config.systems) {
-            await this.updateSystems(this.config.systems, this.config.categories);
+            console.log(this.config.activeCategories);
+            await this.updateSystems(this.config.systems, this.config.categories, this.config.activeCategories);
         }
 
         this.scene.add(this.setCoordinatesText("Coordinates", 0, 0, 0));
 
         //
         window.addEventListener('resize', () => {
-            this.onWindowResize();
+            this.windowResize();
         });
 
         this.setCameraPosition(0, -150, 0, 500, this.config.startAnimation);
@@ -236,11 +237,17 @@ export class ED3DMap {
 
     public async updateSystems(systems: SystemConfiguration[], categories?: ED3DMapCategories, activeCategories?: string[]): Promise<void> {
         if (categories) {
+            console.log(this.config.categories, activeCategories);
             this.config.categories = categories;
-            if (activeCategories) {
-                this.config.activeCategories = activeCategories;
+            if (!activeCategories) {
+                activeCategories = [];
+                for (const category of Object.keys(this.systemCategories)) {
+                    if (this.systemCategories[category].active) {
+                        activeCategories.push(category);
+                    }
+                }
             }
-            activeCategories = activeCategories ?? this.config.activeCategories;
+            this.config.activeCategories = activeCategories;
             for (const category of Object.keys(this.systemCategories)) {
                 this.systemCategories[category].spriteMaterial.dispose();
             }
@@ -337,7 +344,6 @@ export class ED3DMap {
 
     private async toggleCategoryFilter(categoryName: string): Promise<void> {
         const active = this.systemCategories[categoryName].active;
-        const material = active ? this.systemCategories[categoryName].spriteMaterial : this.textures.systemSpriteDisabled;
         for (const object3d of this.scene.children) {
             if (object3d instanceof SystemPoint) {
                 if (this.isSystemFiltered(object3d.system)) {
@@ -378,7 +384,7 @@ export class ED3DMap {
         this.renderRequested = true;
     }
 
-    private onWindowResize() {
+    public windowResize() {
         this.camera.aspect = this.container.offsetWidth / this.container.offsetHeight;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(this.container.offsetWidth, this.container.offsetHeight);
