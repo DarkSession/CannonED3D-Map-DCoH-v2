@@ -1,6 +1,6 @@
 {
   "name": "canonned3d-map",
-  "version": "0.1.5",
+  "version": "0.1.8",
   "description": "Canonn ED 3D Map",
   "main": "index.js",
   "sideEffects": false,

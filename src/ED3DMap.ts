@@ -82,7 +82,7 @@ export class ED3DMap {
     private clock = new Clock();
 
     public constructor(
-        private readonly container: HTMLElement,
+        public readonly container: HTMLElement,
         public readonly config: ED3DMapConfiguration
     ) {
         this.camera = new PerspectiveCamera(45, this.container.offsetWidth / this.container.offsetHeight, 1, 200000);
@@ -216,7 +216,6 @@ export class ED3DMap {
         console.log("init done");
 
         if (this.config.systems) {
-            console.log(this.config.activeCategories);
             await this.updateSystems(this.config.systems, this.config.categories, this.config.activeCategories);
         }
 
@@ -237,7 +236,6 @@ export class ED3DMap {
 
     public async updateSystems(systems: SystemConfiguration[], categories?: ED3DMapCategories, activeCategories?: string[]): Promise<void> {
         if (categories) {
-            console.log(this.config.categories, activeCategories);
             this.config.categories = categories;
             if (!activeCategories) {
                 activeCategories = [];

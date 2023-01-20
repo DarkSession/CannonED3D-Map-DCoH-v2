@@ -43,7 +43,8 @@ export class Action {
         if (this.pointerDown || !this.ED3DMap.controlsEnabled) {
             return;
         }
-        this.pointer.set((event.clientX / window.innerWidth) * 2 - 1, - (event.clientY / window.innerHeight) * 2 + 1);
+        const containerClientRect = this.ED3DMap.container.getBoundingClientRect();
+        this.pointer.set(((event.clientX - containerClientRect.left) / containerClientRect.width) * 2 - 1, -((event.clientY - containerClientRect.top) / containerClientRect.height) * 2 + 1);
         const intersects = this.ED3DMap.raycasterIntersectObjects(this.pointer);
         let systemFound = false;
         if (intersects.length) {
